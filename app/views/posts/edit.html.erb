@@ -1,0 +1,15 @@
+<h1>編集</h1>
+<div class="edit">
+	<%= form_for(@post, url:posts_path) do |f| %>
+	<%= f.attachment_field :image, placeholder:記事のトップ写真 %>
+	<h4>タイトル</h4>
+	<%= f.text_field :title %>
+	<h4>目次</h4>
+	<%= f.text_area :table_content %>
+	<h4>サブタイトル</h4>
+	<%= f.text_field :subtitle %>
+	<h4>内容</h4>
+	<%= f.text_area :content %>
+	<%= f.submit "送信", class:"btn btn-primary" %>
+	<% end %>
+</div>

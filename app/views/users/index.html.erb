@@ -1,0 +1,52 @@
+<p>User search</p>
+<%= form_tag(users_path, :method => "get") do %>
+  <p>
+  	<%= text_field_tag :search, params[:search] %>
+  	<%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+<% if @search_users %>
+  <ul class="media-list">
+  	<% @search_users.each do |user| %>
+  	<li class="media">
+  		<div class="media-body">
+  			<div>
+  				<%= user.first_name %>
+  			</div>
+  			<div>
+  				<p><%= link_to 'View profile', user_path(user) %></p>
+  			</div>
+  		</div>
+  	</li>
+  <% end %>
+ </ul>
+ <%= paginate @search_users %>
+ <% end %>
+
+
+<h1>投稿者一覧</h1>
+
+<% @users.each do |user| %>
+<div class="container ">
+	<div class="row">
+	<div class="col-lg-8">	
+	<div class="row">
+		<div class="col-lg-4">
+			<%= link_to user_path(user) do %>
+			<%= attachment_image_tag user, :image, :fill,70,70, format: 'jpeg', class:"img-circle pull-left profil-img", fallback: "no_image.jpg",size:'70x70' %><% end %>
+		</div>
+		<div class="col-lg-8">
+			<%= user.first_name %><br>
+			<%= user.introduction %>
+		</div>
+	</div>
+    </div>
+    <div class="col-lg-4" style="background-color:lightpink;">
+      <h2>広告募集中</h2>
+    </div>
+    </div>
+</div>
+
+<% end %>
+<%= paginate @users %>

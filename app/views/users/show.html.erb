@@ -1,0 +1,39 @@
+<h2>マイページ</h2><br>
+<div class="users-container">
+    <div class="row">
+		<div class="col-lg-4">
+			<table class="table">
+				<tbody>
+					<tr><td><%= attachment_image_tag @user, :image, :fill,60,60, format: 'jpeg', class:"img-circle pull-left profile-img", fallback: "no_image.jpg",size:'60x60' %></td></tr>
+                    <tr><td><%= @user.first_name %><%= @user.last_name %></td></tr>
+                    <tr><td><%= @user.introduction %></td></tr>
+                        <% if @user.id == current_user.id %>
+                    <tr><td><%= link_to "編集", edit_user_path(@user), class:"btn btn-primary" %></td></tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-8">
+            <% @user.posts.each do |post| %>
+              <table class="table">
+                <thead>
+                    <tr>
+                        <th> <%= attachment_image_tag post, :image, :fill,60,60,
+                      format: 'jpeg', class:"img-circle pull-left profile-img", fallback: "no_image.jpg", size:'60x60' %></th>
+                        <th><%= post.title %></th>
+                        <th><%= post.created_at.strftime('%Y/%m/%d') %></th>
+                    </tr>
+                </thead>
+              </table>
+             <% end %>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+
+
+
+
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TomoYoga</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+  </head>
+
+  <body>
+    <%= render 'layouts/header' %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th><img src="/assets/yoga/meditate-1851165_640.jpg" width="450"></th>
+          <th><img src="/assets/yoga/people-2573216_640.jpg" width="450"></th>
+          <th><img src="/assets/yoga/rock-731140_640.jpg" width="450"></th>
+          <th><img src="/assets/yoga/yoga-2662234_640.jpg" width="450"></th>
+        </tr>
+      </thead>
+    </table>
+
+    <div class = 'container fluid' >
+   
+      <div class="row">
+        <%= yield %>
+      </div>
+    </div><br><br><br>
+    <%= render 'layouts/footer' %>
+  </body>
+</html>
