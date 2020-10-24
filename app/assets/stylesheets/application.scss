@@ -18,7 +18,18 @@
  @import "font-awesome-sprockets";
  @import "font-awesome";
 
+.link-1{
+    display:none;
+}
+
  @media screen and (max-width:500px){
+    *{
+    margin:0 auto;
+    box-siging:border-box;
+    }
+    .link-1{
+    display:block;
+    }
     .table-1{
       margin:0 auto;
     }
@@ -34,5 +45,4 @@
 	.img-4{
 	display:none;
 	}
-	
 }
