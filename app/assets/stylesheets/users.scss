@@ -2,3 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.profile-edit {
+	text-align:center;
+	color:orange;
+}
+
+@media screen and (max-width:500px){
+	.profile-edit{
+	width:100%;
+	}
+}
