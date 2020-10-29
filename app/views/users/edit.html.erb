@@ -1,14 +1,17 @@
+<h2 class="profile-edit">こちらでご自身のプロフィールを編集できます</h2>
 <div class="container">
 	<%= form_for(@user) do |f| %>
 	<div class="row">
-		<div class="col-lg-4">
+		<div class="col-lg-12">
 			<%= attachment_image_tag @user, :image, :fill, 60, 60, class:"img-circle pull-left profile-thumb", fallback: "no_image.jpg",size:'100x100' %>
 		</div>
-		<div class="col-lg-8">
+	</div>
+	<div class="row">
+		<div class="col-lg-12">
 			(姓)<%= f.text_field :first_name, placeholder:"姓" %>
 			(名前)<%= f.text_field :last_name, placeholder:"名" %>
 		</div>
-	</div>
+	</div><br><br>
 	<div class="row">
 		<div class="col-lg-12">
 			<%= f.attachment_field :image, placeholder: "プロフィール画像", class: "user-edit-form" %>
