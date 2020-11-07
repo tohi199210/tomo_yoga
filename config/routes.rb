@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'bookmarks/create'
+  get 'bookmarks/destroy'
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'tops#top'
@@ -10,11 +12,17 @@ Rails.application.routes.draw do
     resources :post_comments, only: [:create, :destroy]
     
   end
+
+  resources :posts, shallow: true do
+    resource :bookmarks, only: %[create destrouy]
+    get :bookmarks, on: :collection
+  end
   
   resources 'users'
 
   get 'users/:id/withdrawal' => 'users#withdrawal' , as: 'user_withdrawal'
   patch 'users/:id/withdrawal' => 'users#withdrawal_done', as: 'user_withdrawal_done'
   put "/users/:id/withdrawal" => 'users#withdrawal_done', as: 'users_withdrawal_done'
+ 
 
 end
