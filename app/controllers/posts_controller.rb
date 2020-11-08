@@ -44,6 +44,10 @@ class PostsController < ApplicationController
         @post.destroy
         redirect_to posts_path
     end
+
+    def bookmarks
+        @posts = current_user.bookmark_posts.includes(:user).recent
+    end
     
     private
     
