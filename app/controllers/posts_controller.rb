@@ -3,7 +3,6 @@ class PostsController < ApplicationController
     before_action :authenticate_user!
 	def index
 		@posts = Post.page(params[:page]).reverse_order
-        @posts_index = Post.all.includes(:users).recent
     end
 
     def new
