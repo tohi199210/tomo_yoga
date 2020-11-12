@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'inquiry/index'
+  get 'inquiry/confirm'
+  get 'inquiry/thanks'
   get 'bookmarks/create'
   get 'bookmarks/destroy'
   devise_for :users
